@@ -1,0 +1,100 @@
+clc
+clear
+close all
+
+% *****  INTEGRANTES: ***** 
+% - Ernesto Mihael Tolentino Leon 
+
+% PROGRAMA: MATLAB 
+
+% ENERGIA POTENCIAL Y ENERGIA CINETICA
+
+Pi=3.141592;
+k=1;   %Constante de elasticidad
+m=5;   %Masa
+A=8;   %Amplitud
+fhi=0; %Fase inicial
+
+w=sqrt(k*m^-1)  %Frecuencia angular
+
+T=2*Pi*w^-1     %Periodo
+
+t=linspace(0,T,100); % Desde t=0 hasta el t=T, en 5 puntos.
+
+t     
+
+%w*t+phi : Fase del movimiento.
+
+x=A*cos(w*t+fhi)    %Solucion POSICION
+v=-A*w*sin(w*t+fhi) %Solucion VELOCIDAD
+
+%C: Energia Cinetica
+K=2^-1*k*x.^2
+
+%U: Energia Potencial
+U=2^-1*m*v.^2
+
+%GRAFICAS
+figure(1)
+subplot(2,1,1);
+plot(t,K);
+xlabel('t');
+ylabel('K');
+title('K vs t');
+legend('Energia Cinetica');
+grid on;
+
+subplot(2,1,2);
+plot(t,U);
+xlabel('t');
+ylabel('U');
+title('U vs t');
+legend('Energia Potencial');
+grid on;
+
+figure (2)
+plot(t,K);
+xlabel('t');
+ylabel('K');
+title('K,U vs t');
+grid on;
+hold on;
+plot(t,U);
+xlabel('t');
+ylabel('K,U');
+title('K,U vs t');
+legend('Energia Cinetica','Energia Potencial');
+grid on;
+hold off;
+
+figure(3)
+subplot(2,1,1);
+plot(x,K);
+xlabel('x');
+ylabel('K');
+title('K vs x');
+legend('Energia Cinetica');
+grid on;
+
+subplot(2,1,2);
+plot(x,U);
+xlabel('x');
+ylabel('U');
+title('U vs x');
+legend('Energia Potencial');
+grid on;
+
+figure (4)
+plot(x,K);
+xlabel('x');
+ylabel('K');
+title('K,U vs x');
+grid on;
+hold on;
+plot(x,U);
+xlabel('x');
+ylabel('K,U');
+title('K,U vs x');
+legend('Energia Cinetica','Energia Potencial');
+grid on;
+hold off;
